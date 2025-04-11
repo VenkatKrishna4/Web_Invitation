@@ -32,6 +32,3 @@ This project is a digital invitation system created for college events. It allow
 - Ideal for colleges and student teams to send event invites in a modern, contactless way.
 - Can be customized easily for different event types or organizations.
 
----
-
-Let me know if you want to include the actual Netlify live link or screenshot placeholders!
