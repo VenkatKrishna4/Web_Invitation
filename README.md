@@ -19,6 +19,10 @@ This project is a digital invitation system created for college events. It allow
 - Netlify (for deployment)  
 - QR Code Generator (to link to the hosted site)
 
+## Live Demo
+
+[Click here to view the invite site](https://dapper-beijinho-5f2407.netlify.app/)
+
 ## How It Works
 
 1. The website is hosted on Netlify.
