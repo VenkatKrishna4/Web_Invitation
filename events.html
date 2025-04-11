@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+    <link rel="stylesheet" href="events.css">
+</head>
+<body>
+
+    <!-- Main Events Button -->
+    <div class="main-button" id="mainButton">Events</div>
+
+    <!-- Event Boxes (Initially Hidden) -->
+    <div class="event-container">
+        <div class="event-box" id="ppt">
+            <img src="ppt.png" alt="PPT">
+            <span>PPT</span>
+        </div>
+        <div class="event-box" id="poster">
+            <img src="poster.png" alt="Poster">
+            <span>Poster</span>
+        </div>
+        <div class="event-box" id="quiz">
+            <img src="quiz.png" alt="Quiz">
+            <span>Quiz</span>
+        </div>
+        <div class="event-box" id="dance">
+            <img src="dance.png" alt="Dance">
+            <span>Dance</span>
+        </div>
+        <div class="event-box" id="talent">
+            <img src="talent.png" alt="Talent Show">
+            <span >Talent Show</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("mainButton").addEventListener("click", function() {
+            let mainButton = document.getElementById("mainButton");
+            mainButton.classList.add("move-up"); // Move the button up
+
+            document.querySelectorAll(".event-box").forEach((box, index) => {
+                setTimeout(() => {
+                    box.classList.add("show");
+                }, index * 400); // Delay for smooth stacking
+            });
+        });
+    </script>
+
+</body>
+</html>

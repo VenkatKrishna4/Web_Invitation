@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Card</title>
+    <link rel="stylesheet" href="invistyle.css">
+    <style>
+        /* Background image for the entire page */
+        body {
+            background-image: url('background.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Styling for Anuradha Madam's photo */
+        .madam-photo {
+            display: none; /* Initially hidden */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* .madam-photo img {
+            width: 120px; /* Adjust size */
+            /* height: 120px; */
+            /* border-radius: 50%; Circular shape */
+            /* border: 3px solid #fff; */
+        /* } */ 
+    </style>
+</head>
+<body>
+    <div class="invitation-container">
+        <div class="invitation-card" id="invitationCard">
+            <div class="card-front">
+
+                <!-- Madam's Photo Section -->
+                <div class="madam-photo" id="madamPhoto">
+                    <img src="anu.jpg" alt="Anuradha Madam"> <!-- Replace with actual photo -->
+                </div>
+
+                <div class="border-box">
+                    <p id="inviteMessage">Loading...</p>
+                </div>
+            </div>
+            <div class="card-back">
+            </div>
+        </div>
+    </div>
+
+    <div class="events-box" id="eventsBox" onclick="redirectToEvents()">
+        Events
+    </div>
+
+    <script>
+        window.onload = function () {
+            // Get the name from the URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get("name");
+
+            let inviteMessageElement = document.getElementById("inviteMessage");
+            let madamPhoto = document.getElementById("madamPhoto");
+
+            if (userName) {
+                let message = "";
+
+                if (userName.toLowerCase() === "anuradha") {
+                    message = `
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                        <strong>Respected Anuradha Madam,</strong><br><br>
+We are honored to invite you to our BCA-A Internal Event. Your presence would be an inspiration to all of us,  
+as your guidance and wisdom continuously motivate us to strive for excellence.  
+
+ 
+<br>
+<br>
+Kindly grace the event with your esteemed presence and make it even more memorable.
+
+                    `;
+                    madamPhoto.style.display = "block"; // Show photo only for Anuradha
+                } else if (userName.toLowerCase() === "mavullu") {
+                    message = `
+                    <br>
+<br>
+<br>
+<br>
+                        <strong>Respected Mavullu Sir,</strong><br><br>
+                        <br>
+<br>
+We extend a warm invitation to you for our BCA-A Internal Event, a gathering of enthusiasm, innovation, and learning.  
+Your continuous support and guidance have always been a source of encouragement for us.  
+
+ 
+<br>
+<br>
+We look forward to your presence and valuable words of wisdom as we come together to celebrate this occasion.
+
+                    `;
+                    madamPhoto.style.display = "none"; // Hide photo
+                } else {
+                    message = `
+                        <strong></strong><br><br>
+                        <br>
+<br><br>
+<br>
+We are delighted to invite you to our BCA-A Internal Event, a day filled with engaging activities,  
+exciting competitions, and memorable moments.  
+
+  <br>
+<br>
+
+Join us for an event that promises fun, learning, and inspiration.  
+We look forward to welcoming you!
+ 🎉  
+                    `;
+                    madamPhoto.style.display = "none"; // Hide photo for general names
+                }
+
+                inviteMessageElement.innerHTML = message;
+            } else {
+                inviteMessageElement.innerHTML = "Invalid invitation. Please enter your name.";
+            }
+        };
+
+        // Flip invitation card on click
+        document.getElementById("invitationCard").addEventListener("click", function () {
+    this.classList.add("flip-card"); // Toggles flip effect
+});
+
+        // Show events box after 10 seconds
+        setTimeout(() => {
+            document.getElementById("eventsBox").classList.add("show");
+        }, 5000);
+
+        // Redirect to events page
+        function redirectToEvents() {
+            window.location.href = "events.html";
+        }
+    </script>
+</body>
+</html>

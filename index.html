@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Event - BCA A</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form onsubmit="redirectToInvitation(event)">
+        <h3>BCA-A</h3>
+        <h3>Internal Event Invitation</h3>
+
+        <label for="username"></label>
+        <input type="text" placeholder="Enter your name" id="username" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function redirectToInvitation(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let userName = document.getElementById("username").value.trim(); // Get the name
+            
+            if (userName) {
+                // Redirect to invitation.html with name in URL parameter
+                window.location.href = `invitation.html?name=${encodeURIComponent(userName)}`;
+            } else {
+                alert("Please enter your name.");
+            }
+        }
+    </script>
+</body>
+</html>

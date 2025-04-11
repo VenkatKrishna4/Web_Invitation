@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    background: #222;
+    background-image: url(eventback2.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Events Button */
+.main-button {
+    width: 120px;
+    height: 120px;
+    background-image: url('events.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.7s ease-in-out;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Move Up Effect */
+.move-up {
+    transform: translateY(-250px);
+}
+
+/* Container for Event Boxes */
+.event-container {
+    position: absolute;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Event Boxes */
+.event-box {
+    width: 200px;
+    height: 80px;
+    background: #444;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+    margin: 10px 0;
+}
+
+/* Image Styling Inside Boxes */
+.event-box img {
+    width: 60px;
+    height: 60px;
+    margin-right: 40px;
+}
+
+/* Show Class (Triggers Animation) */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Adjustments for Smaller Screens */
+@media screen and (max-width: 600px) {
+    /* Reduce button size */
+    .main-button {
+        width: 90px;
+        height: 90px;
+        font-size: 16px;
+    }
+
+    /* Move button up less */
+    .move-up {
+        transform: translateY(-200px);
+    }
+
+    /* Adjust event boxes */
+    .event-box {
+        width: 160px;
+        height: 60px;
+        font-size: 14px;
+    }
+
+    /* Reduce image size in boxes */
+    .event-box img {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+    }
+
+    /* Reduce font size for Talent Show */
+    #talent {
+        font-size: 12px;
+    }
+}

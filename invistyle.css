@@ -1,0 +1,175 @@
+/* General Styles */
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-color: darkolivegreen;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Invitation Container */
+.invitation-container {
+    width: 100%;
+    max-width: 350px; /* Adjusted for visibility */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    padding: 20px;
+}
+
+/* Invitation Card */
+.invitation-card {
+    width: 100%;
+    max-width: 320px;
+    height: 480px; /* Fixed height */
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 1s ease-in-out;
+    animation: dropFromTop 1.5s ease-out;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align elements from the top */
+    align-items: center; /* Keep elements centered horizontally */
+    padding-top: 10px; /* Optional: Add space at the top */
+}
+
+
+
+/* Card Front and Back */
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Card Front */
+.card-front {
+    background-image: url('pottiback.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 8px solid beige;
+    padding: 15px;
+    color: azure;
+    transform: rotateY(180deg);
+}
+
+/* Card Back */
+.card-back {
+    background: linear-gradient(45deg, #073015, #099e1d);
+    background-image: url('cardback.png');
+    background-size: cover;
+    background-position: center;
+    font-size: 22px;
+}
+
+/* Drop from Top Animation */
+@keyframes dropFromTop {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(0); }
+}
+
+/* Events Box */
+.events-box {
+    width: 140px;
+    height: 45px;
+    background: rgb(123, 113, 51);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 8px;
+    margin-top: 50px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    cursor: pointer;
+}
+
+.events-box.show {
+    opacity: 1;
+    animation: dropFromTop 1.5s ease-out;
+}
+
+/* Madam's Photo */
+.madam-photo {
+    display: block;
+    width: 60px;
+    text-align: center;
+    position: absolute;
+    top: 40px; /* Push it to the top */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0; /* Remove any extra space */
+}
+
+
+.madam-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 600px) {
+    .invitation-container {
+        width: 80%;
+    }
+
+    .invitation-card {
+        max-width: 280px;
+        height: 420px;
+    }
+
+    .card-front {
+        padding: 12px;
+        border: 6px solid rgb(123, 113, 51);
+    }
+
+    .card-back {
+        font-size: 0px;
+    }
+
+    .events-box {
+        width: 130px;
+        height: 40px;
+        font-size: 14px;
+        line-height: 40px;
+    }
+
+    .madam-photo img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Flip Animation */
+.invitation-card {
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+}
+
+.flip-card {
+    transform: rotateY(180deg) !important; /* Flips to front side */
+}
+
+/* Ensure card is initially flipped to back */
+.invitation-card:not(.flip-card) {
+    transform: rotateY(0deg);
+}
